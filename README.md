@@ -9,7 +9,7 @@ CRUD-приложение для управления списком задач 
 ```bash
 git clone https://github.com/exdk/go-task-manager
 ```
-2. Переименовать файл .env_example в .env и прописать в нем настройки подключения к базе данных.  
+2. Переименовать файл example.env в .env и прописать в нем настройки подключения к базе данных.  
 3. Выполнить миграции:
 ```bash
 migrate -path db/migrations -database "mysql://DBUSER:DBPASS@tcp(DBHOST:DBPORT)/DBNAME" -verbose up
