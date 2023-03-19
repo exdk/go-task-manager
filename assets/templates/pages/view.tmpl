@@ -1,0 +1,17 @@
+{{ define "content" }}
+
+<main class="px-3">
+    <p class="lead">Просмотр задачи</p>
+    <div class="card" style="background: darkslategray;">
+        <div class="card-body">
+            <h5 class="card-title">{{ .Title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">К исполнению: {{ .Date }}</h6>
+            <p class="card-text">{{ .Description }}</p>
+            <a href="/" class="btn btn-info">Назад</a>
+            <a href="/edit/{{ .Id }}" class="btn btn-warning">Изменить</a>
+            <a href="/delete/{{ .Id }}" class="btn btn-danger">Удалить</a>
+        </div>
+    </div>
+</main>
+
+{{ end }}

@@ -1,0 +1,30 @@
+{{ define "content" }}
+
+<main class="px-3">
+	<p class="lead">Изменить задачу</p>
+	<div id="msg"></div>
+	<form action="/api/put/{{ .Id }}" method="post">
+	
+		<p class="mb-0" style="text-align: left">Название задачи:</p>
+		<input type="text" name="title" id="title" value="{{ .Title }}" class="form-control"><br>
+
+		<p class="mb-0" style="text-align: left">Описание:</p>
+		<textarea type="text" name="description" id="description" class="form-control" rows="3">{{ .Description }}</textarea><br>
+		
+		<p class="mb-0" style="text-align: left">К исполнению:</p>
+		<input type="date" name="date" id="date" value="{{ .Date }}" class="form-control"><br>
+		
+		<button class="btn btn-info">Сохранить</button>
+
+	</form>
+</main>
+
+<script>
+	const urlParams = new URLSearchParams(window.location.search);
+	const isMsg = urlParams.get('msg')
+	if (isMsg == 'empty') {
+		elem = document.getElementById('msg');
+		elem.innerHTML = '<div class="alert alert-danger" role="alert">Все поля являются обязательными</div>';
+	}
+</script>
+{{ end }}

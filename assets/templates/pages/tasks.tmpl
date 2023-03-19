@@ -1,0 +1,42 @@
+{{ define "content" }}
+
+<main class="px-3">
+	<p class="lead">Список задач</p>
+	<div id="msg"></div>
+	{{ range . }}
+		<div class="card" style="background: darkslategray;">
+			<div class="card-body">
+				<h5 class="card-title">{{ .Title }}</h5>
+				<h6 class="card-subtitle mb-2 text-muted">К исполнению: {{ .Date }}</h6>
+				<p class="card-text">{{ .Description }}</p>
+				<a href="/view/{{ .Id }}" class="btn btn-info">Посмотреть</a>
+				<a href="/edit/{{ .Id }}" class="btn btn-warning">Изменить</a>
+				<button class="btn btn-danger" onclick="deleteTask( {{ .Id }} )">Удалить</button>
+			</div>
+		</div>
+	{{ else }} 
+	 	<p class="lead">Список пока пуст!</p>
+	{{ end }}
+</main>
+<script>
+	const urlParams = new URLSearchParams(window.location.search);
+	const isMsg = urlParams.get('msg')
+	elem = document.getElementById('msg');
+	if (isMsg == 'delete') {
+		elem.innerHTML = '<div class="alert alert-success" role="alert">Задача успешно удалена!</div>';
+	}
+	if (isMsg == 'add') {
+		elem.innerHTML = '<div class="alert alert-success" role="alert">Задача успешно добавлена!</div>';
+	}
+	if (isMsg == 'edit') {
+		elem.innerHTML = '<div class="alert alert-success" role="alert">Задача успешно изменена!</div>';
+	}
+
+	function deleteTask(id) {
+		fetch('/api/delete/' + id,  {
+			method: 'DELETE'
+		})
+		window.location.replace("/?msg=delete");
+	}
+</script>
+{{ end }}

@@ -1,0 +1,38 @@
+{{ define "wrapper" }}
+
+<!DOCTYPE html>
+<html>
+	<head>
+  		<meta charset="utf-8" />
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  		<meta http-equiv="X-UA-Compatible" content="ie-edge">
+  		<title>Task Manager</title>
+  		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  		<link rel="stylesheet" href="/assets/css/cover.css">
+		<link rel="icon" href="/assets/img/favicon.ico">
+ 	</head>
+ 	
+ 	<body class="d-flex h-100 text-center text-bg-dark">
+		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+			<header class="mb-auto">
+		  		<div>
+		    		<a class="nav-link fw-bold py-1 px-0" href="/">
+						<h3 class="float-md-start mb-0">Task Manager</h3>
+					</a>
+		    		<nav class="nav nav-masthead justify-content-center float-md-end">
+		      			<a class="nav-link fw-bold py-1 px-0" href="/">Список</a>
+				      	<a class="nav-link fw-bold py-1 px-0" href="/add">Добавить</a>
+				    </nav>
+		  		</div>
+			</header>
+			
+			{{ template "content" .}}
+		
+		 	<footer class="mt-auto text-white-50 pt-3">
+		   		<p>Based on Go, by @yunusov.</p>
+		 	</footer> 		
+		</div>
+	</body>
+</html>
+
+{{ end }}
