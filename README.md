@@ -2,6 +2,10 @@
 
 CRUD-приложение для управления списком задач (Task Manager), написанное на Go.
 
+![image](https://user-images.githubusercontent.com/102806309/227769756-891816d7-de20-4bd5-bec4-188ff0c088c3.png)
+![image](https://user-images.githubusercontent.com/102806309/227769771-a8974ac1-3283-4a55-b247-15009cfc6c18.png)
+
+
 ## Установка
 
 1. Установить используя команду
